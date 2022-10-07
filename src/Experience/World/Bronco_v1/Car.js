@@ -179,6 +179,6 @@ export default class Car
     handleChaseCam()
     {
         //update chasecamera
-        this.chaseCamera.handleChaseCam(this.body)
+        //this.chaseCamera.handleChaseCam(this.body)
     }
 }

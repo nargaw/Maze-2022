@@ -4,6 +4,7 @@ import Ground from './Ground.js'
 import Car from './Bronco_v1/Car.js'
 import TestBuildings from './TestBuildings.js'
 import TestObjects from './TestObjects.js'
+import FireFlies from './FireFlies.js'
 
 export default class World
 {
@@ -12,6 +13,7 @@ export default class World
         this.experience = new Experience()
         this.scene = this.experience.scene
         this.resources = this.experience.resources
+        this.fireFlies = new FireFlies()
 
         // Wait for resources
         this.resources.on('ready', () =>
@@ -36,6 +38,10 @@ export default class World
             this.car.motion()
             this.car.update()
             this.car.handleChaseCam()
+        }
+        if(this.fireFlies)
+        {
+            this.fireFlies.update()
         }  
     }
 }
