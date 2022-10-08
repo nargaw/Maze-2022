@@ -7,6 +7,7 @@ export default class FireFlies{
     constructor()
     {
         this.experience = new Experience()
+        this.time = this.experience.time
         this.scene = this.experience.scene
         this.clock = new THREE.Clock()
 
@@ -20,9 +21,9 @@ export default class FireFlies{
         this.positionArray = new Float32Array(this.firefliesCount * 3)
         this.scaleArray = new Float32Array(this.firefliesCount)
         for(let i = 0; i < this.firefliesCount; i++){
-            this.positionArray[i * 3 + 0] = (Math.random() - 0.5) * 100
-            this.positionArray[i * 3 + 1] = (Math.random())
-            this.positionArray[i * 3 + 2] = (Math.random() - 0.5) * 100
+            this.positionArray[i * 3 + 0] = (Math.random() - 0.5) * 1000
+            this.positionArray[i * 3 + 1] = (Math.random()) * 50 
+            this.positionArray[i * 3 + 2] = (Math.random() - 0.5) * 1000
 
             this.scaleArray[i] = Math.random()
         }
@@ -48,5 +49,6 @@ export default class FireFlies{
     update()
     {
         this.firefliesMaterial.uniforms.u_time.value += this.clock.getDelta()
+        // console.log(this.firefliesMaterial.uniforms.u_time.value)
     }
 }
