@@ -13,17 +13,18 @@ export default class World
         this.experience = new Experience()
         this.scene = this.experience.scene
         this.resources = this.experience.resources
-        this.fireFlies = new FireFlies()
+        
 
         // Wait for resources
         this.resources.on('ready', () =>
         {
             // Setup
-            
+            this.fireFlies = new FireFlies()
             this.testObjects = new TestObjects()
             this.buildings = new TestBuildings()
             this.car = new Car()
             this.ground = new Ground()
+            
             
         })
     }

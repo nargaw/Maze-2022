@@ -21,9 +21,9 @@ export default class FireFlies{
         this.positionArray = new Float32Array(this.firefliesCount * 3)
         this.scaleArray = new Float32Array(this.firefliesCount)
         for(let i = 0; i < this.firefliesCount; i++){
-            this.positionArray[i * 3 + 0] = (Math.random() - 0.5) * 1000
-            this.positionArray[i * 3 + 1] = (Math.random()) * 50 
-            this.positionArray[i * 3 + 2] = (Math.random() - 0.5) * 1000
+            this.positionArray[i * 3 + 0] = (Math.random() - 0.5) * 100
+            this.positionArray[i * 3 + 1] = (Math.random()) 
+            this.positionArray[i * 3 + 2] = (Math.random() - 0.5) * 100
 
             this.scaleArray[i] = Math.random()
         }
@@ -34,7 +34,7 @@ export default class FireFlies{
             uniforms: {
                 u_time: { value: 0},
                 u_pixelRatio: { value: Math.min(window.devicePixelRatio, 2)},
-                u_size: { value: 2000 }
+                u_size: { value: 2 }
             },
             vertexShader: vertex,
             fragmentShader: fragment,
@@ -44,11 +44,12 @@ export default class FireFlies{
         })
         this.fireflies = new THREE.Points(this.firefliesGeometry, this.firefliesMaterial)
         this.scene.add(this.fireflies)
+        //console.log(this.fireflies)
     }
 
     update()
     {
-        this.firefliesMaterial.uniforms.u_time.value += this.clock.getDelta()
-        // console.log(this.firefliesMaterial.uniforms.u_time.value)
+        this.firefliesMaterial.uniforms.u_time.value = this.clock.getElapsedTime()
+        //console.log(this.firefliesMaterial.uniforms.u_time.value)
     }
 }
