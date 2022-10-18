@@ -18,7 +18,7 @@ export default class Ground
     {
         //set mesh
         this.groundMesh = new THREE.Mesh(
-            new THREE.PlaneGeometry(50000, 50000, 20, 20),
+            new THREE.PlaneGeometry(1500, 1500, 20, 20),
             new THREE.MeshStandardMaterial(
                 {
                     color: 0x1f1f1f,

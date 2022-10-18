@@ -35,7 +35,7 @@ export default class Buildings
         for(let i = 0; i < 150; i++){
             const angle = Math.random() * Math.PI * 2
             const radius = 20 + Math.random() * 80
-            this.x = Math.cos(angle) * radius * 2
+            this.x = Math.cos(angle) * radius * 5
             this.z = Math.sin(angle) * radius * 5
 
             this.buildingMesh = new THREE.Mesh(this.buildingGeometry, this.buildingMaterial)
