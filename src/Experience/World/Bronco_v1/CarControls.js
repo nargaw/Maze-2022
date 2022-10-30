@@ -9,21 +9,23 @@ export default class CarControls extends Controls
         super()
         this.controls = new Controls()
         this.experience = new Experience()
+        this.debug = this.experience.debug
         this.time = this.experience.time
         this.deltaTime = this.time.delta
-        this.debug = this.experience.debug
         this.forwardVel = 0
         this.rightVel = 0
         this.thrusting = false
-        this.turning = false 
-        this.setDebugger() 
+        this.turning = false
+        
+        this.setDebugger()
     }
 
     forward()
     {   
         //console.log(this.deltaTime)
         if (this.keyMap['w'] || this.hoverMap['3']  || this.hoverTouch['3']|| this.keyMap['ArrowUp']){
-            this.forwardVel = lerp(this.forwardVel, this.default.maxSpeed, this.default.forwardLerpValue)
+            this.forwardVel = lerp(this.forwardVel, this.default.maxSpeed * this.time.delta, 0.0125)
+            //console.log('speed: ' + this.forwardVel)
             this.thrusting = true 
         }
     }
@@ -31,7 +33,7 @@ export default class CarControls extends Controls
     backward()
     {
         if (this.keyMap['s'] || this.hoverMap['4'] || this.hoverTouch['4'] || this.keyMap['ArrowDown']){
-            this.forwardVel = lerp(this.forwardVel, this.default.maxBackingSpeed, this.default.backingLerpValue)
+            this.forwardVel = lerp(this.forwardVel, this.time.delta * -0.5, 0.125)
             this.thrusting = true  
         }
     }
@@ -39,7 +41,7 @@ export default class CarControls extends Controls
     left()
     {
         if (this.keyMap['a'] || this.hoverMap['1'] || this.hoverTouch['1']|| this.keyMap['ArrowLeft']){
-            this.rightVel = lerp(this.rightVel, this.default.maxLeftTurningSpeed, this.default.turningLerpValue)
+            this.rightVel = lerp(this.rightVel, this.time.delta * -0.015, 0.025)
             this.turning = true
         }
     }
@@ -47,7 +49,7 @@ export default class CarControls extends Controls
     right()
     {
        if (this.keyMap['d'] || this.hoverMap['2'] || this.hoverTouch['2']|| this.keyMap['ArrowRight']){
-            this.rightVel = lerp(this.rightVel, this.default.maxRightTurningSpeed, this.default.turningLerpValue)
+        this.rightVel = lerp(this.rightVel, this.time.delta * 0.015, 0.025)
             this.turning = true
         }
     }
@@ -55,11 +57,11 @@ export default class CarControls extends Controls
     stablize()
     {
         if(!this.thrusting){
-            this.forwardVel = lerp(this.forwardVel, 0.0, this.default.noThrustingLerpValue)
+            this.forwardVel = lerp(this.forwardVel, 0.0, 0.0125)
         }
 
         if(!this.turning){
-            this.rightVel = lerp(this.rightVel, 0.0, this.default.noTurningLerpValue)
+            this.rightVel = lerp(this.rightVel, 0.0, 0.125)
         }
     }
 
@@ -67,14 +69,14 @@ export default class CarControls extends Controls
     {
         this.default = 
         {
-            maxSpeed: 32,
-            forwardLerpValue: 0.01,
+            maxSpeed: 1.75,
+            forwardLerpValue: 0.02,
 
             maxBackingSpeed: -5,
             backingLerpValue: 0.125,
 
-            maxLeftTurningSpeed: -0.2,
-            maxRightTurningSpeed: 0.2,
+            maxLeftTurningSpeed: -0.15,
+            maxRightTurningSpeed: 0.15,
             turningLerpValue: 0.025,
 
             noThrustingLerpValue: 0.045,
@@ -89,8 +91,8 @@ export default class CarControls extends Controls
             //forward debug
             this.forwardDebug = this.debugFolder.addFolder('Forward')
             this.forwardDebug.add(
-                this.default, 'maxSpeed', 10, 100, 0.1
-            ).name('Max Speed')
+                this.default, 'maxSpeed', 1, 5, 0.1
+            ).name('Max Speed Factor')
              this.forwardDebug.add(
                 this.default, 'forwardLerpValue', 0.001, 0.1, 0.001
             ).name('Speed Lerp Vector')

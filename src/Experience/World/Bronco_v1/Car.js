@@ -4,8 +4,6 @@ import * as CANNON from 'cannon-es'
 import Physics from '../../Utils/Physics'
 import CarPhysics from "./CarPhysics"
 import CarControls from './CarControls'
-import CarControlsLowFPS from './CarControlsLowFPS'
-import CarControlsHighFPS from './CarControlsHighFPS'
 import CarConstraints from './CarConstraints'
 import ChaseCam from './ChaseCam'
 import Environment from '../Environment'
@@ -32,19 +30,7 @@ export default class Car
         this.physics = new Physics()
         this.world = this.physics.world
 
-        this.delatTime = this.time.delta
-        //load correct controls FPS adjusted
-        //checks during loading one time the FPS
-        if(this.delatTime < 12){
-            this.controls = new CarControlsHighFPS()
-            console.log('high fps controls loaded')
-        } else if(this.delatTime > 18){
-            this.controls = new CarControlsLowFPS()
-            console.log('low fps controls loaded')
-        } else {
-            this.controls = new CarControls()
-            console.log('normal fps controls loaded')
-        }
+        this.controls = new CarControls()
         
         this.environment = new Environment()
 

@@ -5,6 +5,7 @@ import Car from './Bronco_v1/Car.js'
 import TestBuildings from './TestBuildings.js'
 import TestObjects from './TestObjects.js'
 import FireFlies from './FireFlies.js'
+import Maze from './Maze.js'
 
 export default class World
 {
@@ -20,8 +21,9 @@ export default class World
         {
             // Setup
             this.fireFlies = new FireFlies()
-            this.testObjects = new TestObjects()
-            this.buildings = new TestBuildings()
+            //this.testObjects = new TestObjects()
+            //this.buildings = new TestBuildings()
+            this.maze = new Maze()
             this.car = new Car()
             this.ground = new Ground()
             
