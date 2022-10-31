@@ -18,7 +18,7 @@ export default class FireFlies{
     initFireflies()
     {
         this.firefliesGeometry = new THREE.BufferGeometry()
-        this.firefliesCount = 10000
+        this.firefliesCount = 1000
         this.positionArray = new Float32Array(this.firefliesCount * 3)
         this.scaleArray = new Float32Array(this.firefliesCount)
         for(let i = 0; i < this.firefliesCount; i++){
