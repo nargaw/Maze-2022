@@ -68,11 +68,11 @@ export default class Experience
 
     update()
     {
-        if(this.camera.instance.position.y > 1){
-            this.camera.update()
-        } else{
-           this.camera.instance.position.y = 1
-        }
+        // if(this.camera.instance.position.y > 1){
+        //     this.camera.update()
+        // } else{
+        //    this.camera.instance.position.y = 1
+        // }
         //this.camera.update()
         this.world.update()
         this.renderer.update()

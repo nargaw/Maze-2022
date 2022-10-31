@@ -6,6 +6,9 @@ import TestBuildings from './TestBuildings.js'
 import TestObjects from './TestObjects.js'
 import FireFlies from './FireFlies.js'
 import Maze from './Maze.js'
+import Pumpkins from './Pumpkins.js'
+import Directions from './Directrions.js'
+import Text from './Text.js'
 
 export default class World
 {
@@ -26,8 +29,9 @@ export default class World
             this.maze = new Maze()
             this.car = new Car()
             this.ground = new Ground()
-            
-            
+            this.pumpkins = new Pumpkins()
+            this.arrow = new Directions()
+            this.text = new Text()
         })
     }
 
@@ -45,6 +49,14 @@ export default class World
         if(this.fireFlies)
         {
             this.fireFlies.update()
-        }  
+        } 
+        if(this.pumpkins)
+        {
+            this.pumpkins.update()
+        }
+        if(this.text)
+        {
+            this.text.update()
+        } 
     }
 }

@@ -1,8 +1,8 @@
 export default [
     {
-        name: 'bronco_v1',
+        name: 'carModel',
         type: 'dracoModel',
-        path: 'models/Bronco_v1/bronco.glb'
+        path: 'models/Car/Audi1.gltf'
     },
 
     {
@@ -42,7 +42,7 @@ export default [
     },
 
     {
-        name: 'arrow.glb',
+        name: 'arrow',
         type: 'gltfModel',
         path: 'models/Arrow/arrow.glb'
     },

@@ -44,6 +44,7 @@ export default class FireFlies{
             depthWrite: false
         })
         this.fireflies = new THREE.Points(this.firefliesGeometry, this.firefliesMaterial)
+        this.fireflies.frustumCulled = false
         this.scene.add(this.fireflies)
         //console.log(this.fireflies)
     }

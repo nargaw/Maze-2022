@@ -10,6 +10,15 @@ export default class Environment
         this.resources = this.experience.resources
         this.debug = this.experience.debug
         
+
+        this.rectAreaLight = new THREE.RectAreaLight(0xffffff, 5.0, 80, 25)
+        this.scene.add(this.rectAreaLight)
+        this.rectAreaLight.position.set(0, 0, 25)
+
+        this.rectAreaLight2 = new THREE.RectAreaLight(0xffffff, 5.0, 80, 25)
+        this.scene.add(this.rectAreaLight2)
+        this.rectAreaLight2.position.set(0, 0, -152)
+        this.rectAreaLight2.rotation.x = Math.PI * 0.5
         this.setAmbientLight()
         //this.setSunLight()
         //this.setSunLightHelper()

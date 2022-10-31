@@ -22,7 +22,7 @@ export default class Physics
         this.default = {
             friction: 0.4,
             restitution: 0.5,
-            gravity: -50
+            gravity: -9.8
         }
 
         this.experience = new Experience()
