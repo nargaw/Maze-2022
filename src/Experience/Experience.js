@@ -73,11 +73,11 @@ export default class Experience
         // } else{
         //    this.camera.instance.position.y = 1
         // }
-        //this.camera.update()
+        this.camera.update()
         this.world.update()
         this.renderer.update()
         this.physics.update()
-        this.physicsDebugger.update()
+        //this.physicsDebugger.update()
         this.stats.update()
     }
 

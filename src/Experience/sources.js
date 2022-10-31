@@ -4,7 +4,11 @@ export default [
         type: 'dracoModel',
         path: 'models/Car/Audi1.gltf'
     },
-
+    {
+        name: 'am',
+        type: 'dracoModel',
+        path: 'models/Car/am.glb'
+    },
     {
         name: 'maze',
         type: 'gltfModel',

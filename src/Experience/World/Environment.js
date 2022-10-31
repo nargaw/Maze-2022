@@ -77,13 +77,13 @@ export default class Environment
 
     setWorldLight()
     {
-        this.worldLight = new THREE.PointLight('#ffffff', 10.5)
+        this.worldLight = new THREE.PointLight('#ff0000', 100.5)
         //this.worldLight.castShadow = true
         this.worldLight.shadow.camera.far = 300
         this.worldLight.shadow.camera.near = 0.01
         // this.worldLight.shadow.mapSize.set(1024, 1024)
         // this.worldLight.shadow.normalBias = 0.05
-        this.worldLight.position.set(0, 50, 0)
+        this.worldLight.position.set(0, 250, 0)
         this.scene.add(this.worldLight)
         // this.value = 50
         // this.worldLight.shadow.camera.far = 10000

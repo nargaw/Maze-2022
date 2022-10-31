@@ -30,6 +30,7 @@ export default class Pumpkins
     {
         this.pumpkinsToUpdate = []
         this.pumpkinGroup = new THREE.Group()
+        
         this.scene.add(this.pumpkinGroup)  
         this.pumpkinGeometry = new THREE.TorusGeometry(1.25, 2.4, 14, 18, 6.3)
         this.pumpkinMaterial = new THREE.MeshStandardMaterial({ 
@@ -46,7 +47,7 @@ export default class Pumpkins
 
         
         this.pumpkinShape = new CANNON.Sphere(5)
-        for (let i = 0; i <= 50; i++){
+        for (let i = 0; i <= 30; i++){
             this.angle = Math.random() * Math.PI * 2
             this.radius = 25 + Math.random() * 500
             this.x = Math.cos(this.angle) * this.radius
@@ -74,7 +75,7 @@ export default class Pumpkins
                 mesh: this.pumpkin,
                 body: this.pumpkinBody
             })
-            this.pumpkinBody.sleepSpeedLimit = 0.05
+            //this.pumpkinBody.sleepSpeedLimit = 0.005
             
         } 
     }

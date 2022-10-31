@@ -31,7 +31,7 @@ export default class CarLights
 
     setHeadLights(group)
     {
-        this.headLight = new THREE.PointLight(0xffffff, 10.5 ,25, 0.25)
+        this.headLight = new THREE.PointLight(0xffffff, 10.5 ,100, 0.25)
         //this.headLight2 = new THREE.PointLight(0xffffff, 5.5 ,9.5, 0.25)
         this.headLight.position.set(-0.25, 5.5,-14.0)
         //this.headLight2.position.set(0.5, 5.5,-20.0)
