@@ -23,7 +23,7 @@ export default class World
         this.resources.on('ready', () =>
         {
             // Setup
-            //this.fireFlies = new FireFlies()
+            this.fireFlies = new FireFlies()
             //this.testObjects = new TestObjects()
             //this.buildings = new TestBuildings()
             this.maze = new Maze()
